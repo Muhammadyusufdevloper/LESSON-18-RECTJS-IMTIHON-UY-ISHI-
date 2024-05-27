@@ -1,0 +1,78 @@
+.create {
+//   position: absolute;  
+//   top: -100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  &__wrapper {
+    padding:50px 90px 40px;
+    background-color: #dde2ff;
+    width: 80%;
+    border-radius: 20px;
+    max-width: 1440px;
+  }
+  &__form {
+    &__input-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 30px;
+      column-gap: 20px;
+      align-items: flex-end;
+    }
+    &__card {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+    }
+    input{
+        padding: 10px 10px 10px 15px;
+        width: 100%;
+        outline: none;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        box-shadow: 1px 1px 10px #dde2ff;
+        font-size: 14px;
+        color: #272a29;
+        font-weight: 500;
+    }
+    select{
+        padding: 9px 10px 9px 15px;
+        width: 100%;
+        outline: none;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        font-size: 14px;
+        box-shadow: 1px 1px 10px #dde2ff;
+        color: #222222;
+        font-weight: 500;
+    }
+    label{
+        color: #222222;
+        font-weight: 500;
+        span{
+            color: #e20000;
+        }
+    }
+    button{
+        display: block;
+        width: 30%;
+        padding: 9px 20px;
+        border: 1px solid #ffffff;
+        background-color: white;
+        box-shadow: 1px 1px 10px #dde2ff;
+        color: #222222;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 60px auto 0;
+        transition: all .5s ease;
+        &:hover{
+            box-shadow: 10px 10px 8px #d8ddf9;
+        }
+    }
+  }
+}
