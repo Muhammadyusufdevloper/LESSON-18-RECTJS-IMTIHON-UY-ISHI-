@@ -1,4 +1,4 @@
-import { memo,useState } from "react"
+import { memo, useState } from "react"
 import "./Header.scss"
 import { Link, NavLink } from "react-router-dom"
 import logo from "../../assets/header/logo.svg"
@@ -77,7 +77,7 @@ const Header = () => {
       </header>
       <header className={`header-center ${scroll > 50 ? "header-center__shrink" : ""}`}>
         <nav className="header-center__navbar container">
-          <Link className="header-center__site-logo">
+          <Link to="/" className="header-center__site-logo">
             <img src={logo} alt="Site logo" />
           </Link>
           <div className="header-center__wrapper">

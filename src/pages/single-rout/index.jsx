@@ -11,7 +11,12 @@ import Faq from "../../components/faq";
 const SingleRout = () => {
     const params = useParams();
     const [data, setData] = useState();
+    const [count, setCount] = useState(1);
+    const [images, setImg] = useState(0);
     const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
     useEffect(() => {
         setLoading(true)
         axios
@@ -21,17 +26,19 @@ const SingleRout = () => {
             .finally(() => setLoading(false));
     }, []);
 
-    const images = data?.images?.map((img) => (
-        <img key={img} src={img} alt={data?.title} />
+    const img = data?.images?.map((img, length) => (
+        <div className={images === length ? "single__left-wrapper__basis-img-card__active" : ""} onClick={() => setImg(length)} key={length}>
+            <img src={img} alt={data?.title} />
+        </div>
     ))
     const product = (
         <div key={data?.id} className="single__left-wrapper__top-boxes">
             <div className="single__left-wrapper__images-cards">
                 <div className="single__left-wrapper__basis-img-card">
-                    <img src={data?.thumbnail} alt={data?.title} />
+                    <img src={data?.images[images]} alt={data?.title} />
                 </div>
                 <div className="single__left-wrapper__small-images-card">
-                    {images}
+                    {img}
                 </div>
             </div>
             <div className="single__left-wrapper__info-cards">
@@ -43,8 +50,8 @@ const SingleRout = () => {
                         <p className='products__info-rating'>{"(" + data?.rating + ")"}</p>
                     </div>
                     <div className="single__left-wrapper__price-card">
-                        <span className="single__left-wrapper__price-new">{Math.round(data?.price)}</span>
-                        <span className="single__left-wrapper__price-old">{Math.round(data?.price + 23)}</span>
+                        <span className="single__left-wrapper__price-new">${Math.round(data?.price * count)}</span>
+                        <span className="single__left-wrapper__price-old">${Math.round(data?.price + 23)}</span>
                     </div>
                     <p className="single__left-wrapper__desc">
                         {data?.description}
@@ -56,13 +63,13 @@ const SingleRout = () => {
                         <button>80g</button>
                     </div>
                     <div className="single__left-wrapper__buttons-card">
-                        <div>
-                            <span>{1}</span>
+                        <div className="single__left-wrapper__buttons-card__part">
+                            <span>{count}</span>
                             <div>
-                                <button>
+                                <button onClick={() => setCount(p => p + 1)}>
                                     <IoIosArrowUp />
                                 </button>
-                                <button>
+                                <button disabled={count <= 1} onClick={() => setCount(p => p - 1)}>
                                     <IoIosArrowDown />
                                 </button>
                             </div>
@@ -103,8 +110,8 @@ const SingleRout = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
     return (
         <>

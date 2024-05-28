@@ -38,6 +38,7 @@ const Products = () => {
     useEffect(() => {
         getProducts();
     }, [categories, limit]);
+    
     useEffect(() => {
         getCategory();
     }, [category]);
@@ -91,8 +92,12 @@ const Products = () => {
                     {categoryList}
                 </ul>
                 {
-                    loading ? <Loading />
-                        : <div className='products__cards'>
+                    loading
+                        ?
+                        <Loading />
+
+                        :
+                        <div className='products__cards'>
                             {products}
                         </div>
                 }
