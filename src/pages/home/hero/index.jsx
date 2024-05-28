@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-// import heroImg from "../../../assets/hero/"
-
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 
 const Hero = () => {

@@ -1,4 +1,4 @@
-import { memo, useState } from "react"
+import { memo,useState } from "react"
 import "./Header.scss"
 import { Link, NavLink } from "react-router-dom"
 import logo from "../../assets/header/logo.svg"
@@ -16,6 +16,10 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 const Header = () => {
   const [menu, setMenu] = useState(false)
+  const [scroll, setScroll] = useState(null)
+  window.addEventListener("scroll", () => {
+    setScroll(window.scrollY);
+  })
   return (
     <>
       <header className="header-top">
@@ -71,7 +75,7 @@ const Header = () => {
           </ul>
         </nav>
       </header>
-      <header className="header-center">
+      <header className={`header-center ${scroll > 50 ? "header-center__shrink" : ""}`}>
         <nav className="header-center__navbar container">
           <Link className="header-center__site-logo">
             <img src={logo} alt="Site logo" />
@@ -129,14 +133,14 @@ const Header = () => {
                 <FiUser />
                 <p>Account</p>
               </Link>
-              <button onClick={() => setMenu(true)} className="header-center__menu-btn">
-                <IoMdMenu className="header-center__menu-btn" />
-              </button>
             </div>
+            <button onClick={() => setMenu(true)} className="header-center__menu-btn">
+              <IoMdMenu className="header-center__menu-btn" />
+            </button>
           </div>
         </nav>
       </header>
-      <header className="header-bottom">
+      <header className={`header-bottom ${!scroll ? "header-bottom__shrink" : ""}`}>
         <nav className="header-bottom__navbar container">
           <div className="header-bottom__wrapper">
             <div className="header-bottom__all-categories">
@@ -215,29 +219,6 @@ const Header = () => {
                 <NavLink>Contact</NavLink>
               </li>
             </ul>
-            <div className="header-center__buttons-card header-menu__buttons">
-              <button className="header-center__btn">
-                <div>
-                  <img src={refresh} alt="refresh icon" />
-                  <span>0</span>
-                </div>
-                <p>Compare</p>
-              </button>
-              <button className="header-center__btn">
-                <div>
-                  <FaRegHeart />
-                  <span>0</span>
-                </div>
-                <p>Wishlist</p>
-              </button>
-              <button className="header-center__btn">
-                <div>
-                  <GrCart />
-                  <span>0</span>
-                </div>
-                <p>Cart</p>
-              </button>
-            </div>
           </div>
           : <></>
       }
