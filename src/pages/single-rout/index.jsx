@@ -119,7 +119,26 @@ const SingleRout = () => {
                 <div className="container">
                     <div className="single__wrapper">
                         <div className="single__left-wrapper">
-                            {product}
+                            {
+                                loading ? 
+                            <div className="single__loading">
+                                <div className="single__loading-img">
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                </div>
+                                <div className="single__loading-info">
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                    <div className="loading"></div>
+                                </div>
+                            </div>
+                            : product
+                            }
                         </div>
                         <div className="single__right-wrapper">
 

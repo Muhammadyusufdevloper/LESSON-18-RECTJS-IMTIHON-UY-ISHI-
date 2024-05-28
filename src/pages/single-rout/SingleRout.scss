@@ -5,17 +5,19 @@
     grid-template-columns: 1fr 300px;
     gap: 50px;
   }
+  &__loading,
   &__left-wrapper__top-boxes {
     display: flex;
     align-items: flex-start;
     gap: 40px;
     margin-bottom: 50px;
   }
+  &__loading-img,
   &__left-wrapper__images-cards {
     min-width: 530px;
     display: flex;
     flex-direction: column;
-    gap: 68px;
+    gap: 45px;
   }
   &__left-wrapper__basis-img-card {
     height: 530px;
@@ -47,7 +49,7 @@
   }
   &__left-wrapper__basis-img-card__active {
     border: 2px solid #a2d2c9 !important;
-    cursor: auto;
+    cursor: auto !important;
   }
 }
 
@@ -241,4 +243,68 @@
       }
     }
   }
+}
+
+.single{
+    &__loading{
+        display: flex;
+    }
+    &__loading-img{
+        div{
+            width: 100%;
+            &:nth-child(1){
+                border-radius: 5px;
+                height: 490px;
+            }
+            &:nth-child(2){
+                height: 90px;
+            }
+        }
+    }
+    &__loading-info{
+        width: 60%;
+        height: 100%;
+        div{
+            &:nth-child(1){
+                height: 30px;
+                width: 30%;
+                border-radius: 5px;
+                margin-bottom: 19px;
+            }
+            &:nth-child(2){
+                height: 100px;
+                width: 100%;
+                margin-bottom: 17px;
+            }
+            &:nth-child(3){
+                height: 17px;
+                width: 40%;
+                margin-bottom: 34px;
+            }
+            &:nth-child(4){
+                height: 60px;
+                width: 70%;
+                margin-bottom: 31px;
+            }
+            &:nth-child(5){
+                height: 69px;
+                width: 100%;
+                margin-bottom: 32px;
+            }
+            &:nth-child(6){
+                height: 32px;
+                width: 80%;
+                margin-bottom: 3px;
+            }
+            &:nth-child(7){
+                height: 50px;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+            &:nth-child(8){
+                height: 120px;
+                width: 70%;
+            }
+        }
+    }
 }
